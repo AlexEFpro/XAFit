@@ -8,4 +8,11 @@
 import Foundation
 class ProgramsandPhyscal{
     
+    enum gender : String, CaseIterable{
+        case male = "men"
+        case female =  "female"
+        
+        
+    }
+   
 }

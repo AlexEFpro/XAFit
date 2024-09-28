@@ -9,7 +9,17 @@ import SwiftUI
 
 struct TabMenuView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            Tab("",systemImage: "person"){
+                FormView()
+            }
+            Tab("",systemImage: "list.bullet.clipboard"){
+                EvaluationView()
+            }
+            Tab("",systemImage: "figure.strengthtraining.traditional"){
+                QuickTrainingView()
+            }
+        }
     }
 }
 
