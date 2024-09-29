@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct FormView: View {
+    @State private var config: WheelPicker.Config = .init(count: 30)
+    @State private var value: Int = 0
+    
     var body: some View {
-        Text("Form")
+        WheelPicker(config:config, value: $value)
+            .frame(height: 60)
     }
 }
 
 #Preview {
+    
     FormView()
 }
