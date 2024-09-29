@@ -10,6 +10,7 @@ import SwiftUI
 struct WheelPicker: View {
     var config : Config
     @Binding var value: CGFloat
+    @State private var isLoaded: Bool = false
     var body: some View {
         GeometryReader{
             let size = $0.size
@@ -45,7 +46,7 @@ struct WheelPicker: View {
                                 .frame(maxHeight: 20, alignment: .bottom) // big marks
                                 .overlay(alignment:.bottom){
                                     if remainder == 0 && config.showText{
-                                        Text("\(index/config.steps)")
+                                        Text("\((index/config.steps) * config.multiplier)")
                                             .font(.caption)
                                             .fontWeight(.semibold)
                                             .textScale(.secondary)
@@ -61,7 +62,8 @@ struct WheelPicker: View {
                 }
                 .scrollIndicators(.hidden)
                 .scrollTargetBehavior(.viewAligned)
-                .scrollPosition(id: .init(get: {let position: Int? = Int(value)
+                .scrollPosition(id: .init(get: {
+                    let position: Int? = isLoaded ? (Int(value)*config.steps)/config.multiplier : nil
                     return position}, set: {newValue in
                         if let newValue{
                             value = (CGFloat(newValue)/CGFloat(config.steps))
@@ -72,6 +74,9 @@ struct WheelPicker: View {
                         .padding(.bottom,20)
                 })
                 .safeAreaPadding(.horizontal, horizontalPadding)
+                .onAppear{
+                    if !isLoaded{ isLoaded = true}
+                }
             }
             
             
