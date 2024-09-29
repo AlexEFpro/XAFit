@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WheelPicker: View {
     var config : Config
-    @Binding var value: Int
+    @Binding var value: CGFloat
     var body: some View {
         GeometryReader{
             let size = $0.size
@@ -17,10 +17,10 @@ struct WheelPicker: View {
             VStack{
                 HStack{
                     let cms = CGFloat(config.steps)*CGFloat(value)
-                    Text(verbatim : "\(cms)")
+                    Text(verbatim : "\(value)")
                         .font(.title.bold())
                         .contentTransition(.numericText(value: cms))
-                        .animation(.snappy, value: cms)
+                        .animation(.snappy, value: value)
                     Text("cms")
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -61,9 +61,11 @@ struct WheelPicker: View {
                 }
                 .scrollIndicators(.hidden)
                 .scrollTargetBehavior(.viewAligned)
-                .scrollPosition(id: .init(get: {let position: Int? = value
+                .scrollPosition(id: .init(get: {let position: Int? = Int(value)
                     return position}, set: {newValue in
-                        if let newValue{value = newValue }}))
+                        if let newValue{
+                            value = (CGFloat(newValue)/CGFloat(config.steps))
+                            * CGFloat(config.multiplier)}}))
                 .overlay(alignment:.center, content: {
                     Rectangle()
                         .frame(width: 1,height: 40)
@@ -80,6 +82,7 @@ struct WheelPicker: View {
     struct Config: Equatable{
         var count: Int
         var steps: Int = 10
+        var multiplier: Int = 10
         var spacing : CGFloat = 5
         var showText : Bool = true
     }
