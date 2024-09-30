@@ -6,3 +6,9 @@
 //
 
 import Foundation
+protocol CronoProtocol: ObservableObject{
+    var displayValue : Double {get set}
+    var showValue : Bool {get set}
+    var value : Double {get set}
+    func startTimer()
+}
