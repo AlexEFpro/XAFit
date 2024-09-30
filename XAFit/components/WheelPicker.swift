@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct WheelPicker: View {
-    var config : Config
-    @Binding var value: CGFloat
-    @State private var isLoaded: Bool = false
+struct WheelPicker<Model:WheelPickerProtocol>: View {
+    @ObservedObject var model : Model
+    
+    
     var body: some View {
         GeometryReader{
             let size = $0.size
             let horizontalPadding = size.width/2
             VStack{
                 HStack{
-                    let cms = CGFloat(config.steps)*CGFloat(value)
-                    Text(verbatim : "\(value)")
+                    let cms = CGFloat(model.steps)*CGFloat(model.value)
+                    Text(verbatim : "\(model.value)")
                         .font(.title.bold())
                         .contentTransition(.numericText(value: cms))
-                        .animation(.snappy, value: value)
+                        .animation(.snappy, value: model.value)
                     Text("cms")
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -32,21 +32,21 @@ struct WheelPicker: View {
                 }
                 .padding(.bottom, 30)
                 ScrollView(.horizontal){
-                    HStack(spacing:config.spacing){
+                    HStack(spacing:model.spacing){
                         
-                        let totalSteps = config.steps * config.count
+                        let totalSteps = model.steps * model.count
                         //marks
                         ForEach(0...totalSteps, id: \.self){
                             index in
-                            let remainder = index % config.steps
+                            let remainder = index % model.steps
                             
                             Divider()
                                 .background(remainder == 0 ? Color.primary: .gray)
                                 .frame(width: 0 , height: remainder == 0 ? 20 : 10, alignment: .center)
                                 .frame(maxHeight: 20, alignment: .bottom) // big marks
                                 .overlay(alignment:.bottom){
-                                    if remainder == 0 && config.showText{
-                                        Text("\((index/config.steps) * config.multiplier)")
+                                    if remainder == 0 && model.showText{
+                                        Text("\((index/model.steps) * model.multiplier)")
                                             .font(.caption)
                                             .fontWeight(.semibold)
                                             .textScale(.secondary)
@@ -63,11 +63,11 @@ struct WheelPicker: View {
                 .scrollIndicators(.hidden)
                 .scrollTargetBehavior(.viewAligned)
                 .scrollPosition(id: .init(get: {
-                    let position: Int? = isLoaded ? (Int(value)*config.steps)/config.multiplier : nil
+                    let position: Int? = model.isLoaded ? (Int(model.value)*model.steps)/model.multiplier : nil
                     return position}, set: {newValue in
                         if let newValue{
-                            value = (CGFloat(newValue)/CGFloat(config.steps))
-                            * CGFloat(config.multiplier)}}))
+                            model.value = (CGFloat(newValue)/CGFloat(model.steps))
+                            * CGFloat(model.multiplier)}}))
                 .overlay(alignment:.center, content: {
                     Rectangle()
                         .frame(width: 1,height: 40)
@@ -75,7 +75,7 @@ struct WheelPicker: View {
                 })
                 .safeAreaPadding(.horizontal, horizontalPadding)
                 .onAppear{
-                    if !isLoaded{ isLoaded = true}
+                    if !model.isLoaded{ model.isLoaded = true}
                 }
             }
             
@@ -84,13 +84,7 @@ struct WheelPicker: View {
             
         }
     }
-    struct Config: Equatable{
-        var count: Int
-        var steps: Int = 10
-        var multiplier: Int = 10
-        var spacing : CGFloat = 5
-        var showText : Bool = true
-    }
+    
 }
 
 #Preview {

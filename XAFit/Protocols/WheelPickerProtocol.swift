@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol WheelPickerProtocol : ObservableObject {
+    var count: Int {get set}
+    var steps: Int {get set}
+    var multiplier: Int {get set}
+    var spacing : CGFloat {get set}
+    var showText : Bool {get set}
+    var value : CGFloat {get set}
+    var isLoaded: Bool {get set}
+}
