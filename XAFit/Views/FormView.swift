@@ -12,11 +12,28 @@ struct FormView: View {
     
     
     var body: some View {
+        NavigationStack {
+            Form{
+                Section{
+                    WeightPickerView()
+                       
+                    
+                }
+                .scaledToFit()
+                Section{
+                    HeightPickerView()
+                }
+                    .scaledToFit()
+                
+                
+            }
+            
+        }
         
         
        
             
-        WeightPickerView()
+       
                     
            
             

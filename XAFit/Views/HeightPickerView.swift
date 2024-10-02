@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct HeightPicker: View {
+struct HeightPickerView: View {
+    @StateObject private var heightModel = HeightPickerConfigModel()
     var body: some View {
-        WheelPicker(model: <#T##WheelPickerProtocol#>)
+        WheelPicker(model: heightModel )
     }
 }
 
 #Preview {
-    HeightPicker()
+    HeightPickerView()
 }

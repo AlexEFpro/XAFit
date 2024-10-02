@@ -9,7 +9,7 @@ import SwiftUI
 
 struct agePicker: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<Hashable>#>, content: <#T##() -> View#>)
     }
 }
 

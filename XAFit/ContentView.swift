@@ -14,9 +14,14 @@ struct ContentView: View {
         
         VStack {
             LogoView()
+            Text("Enter Your Data")
+                .font(.title.bold())
+            
+            
             
             TabMenuView()
         }
+        
         
     }
 }

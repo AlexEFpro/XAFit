@@ -17,12 +17,12 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
             let horizontalPadding = size.width/2
             VStack{
                 HStack{
-                    let cms = CGFloat(model.steps)*CGFloat(model.value)
+                    let units = CGFloat(model.steps)*CGFloat(model.value)
                     Text(verbatim : "\(model.value)")
                         .font(.title.bold())
-                        .contentTransition(.numericText(value: cms))
+                        .contentTransition(.numericText(value: units))
                         .animation(.snappy, value: model.value)
-                    Text("cms")
+                    Text("\(model.units)")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .textScale(.secondary)

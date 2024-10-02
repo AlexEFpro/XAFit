@@ -15,4 +15,5 @@ protocol WheelPickerProtocol : ObservableObject {
     var showText : Bool {get set}
     var value : CGFloat {get set}
     var isLoaded: Bool {get set}
+    var units : String {get set}
 }
