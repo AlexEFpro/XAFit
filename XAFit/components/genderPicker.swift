@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct genderPicker: View {
+    @ObservedObject var userData :  UserDataModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker("Gender", selection: $userData.gender){
+            ForEach(ProgramsandPhyscal.gender.allCases, id: \.self){gender in Text(gender.rawValue)}
+        }
     }
 }
 
 #Preview {
-    genderPicker()
+    genderPicker(userData: UserDataModel())
 }

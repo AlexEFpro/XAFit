@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct agePicker: View {
+    @ObservedObject var userData :  UserDataModel
     var body: some View {
-        Picker(<#T##titleKey: LocalizedStringKey##LocalizedStringKey#>, selection: <#T##Binding<Hashable>#>, content: <#T##() -> View#>)
+        
+            Picker("Age", selection: $userData.age){
+                ForEach(15...80, id: \.self){age in Text("\(age)").tag(age)}
+        
+               
+            
+        }
+        
+        
     }
 }
 
 #Preview {
-    agePicker()
+    
+    agePicker(userData: .init(weight: 0, height: 0, age: 15, gender: ProgramsandPhyscal.gender.male))
 }

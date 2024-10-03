@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FormView: View {
-   
-    
-    
+    @StateObject var user = UserDataModel()
     var body: some View {
         NavigationStack {
             Form{
@@ -24,7 +22,11 @@ struct FormView: View {
                     HeightPickerView()
                 }
                     .scaledToFit()
-                
+                Section{
+                    HStack{
+                        agePicker(userData: user)
+                    }
+                }
                 
             }
             
@@ -51,5 +53,5 @@ struct FormView: View {
 
 #Preview {
     
-    FormView()
+    FormView(user: UserDataModel(weight: 0, height: 0, age: 15, gender: ProgramsandPhyscal.gender.male))
 }

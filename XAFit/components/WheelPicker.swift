@@ -88,5 +88,5 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(user: UserDataModel(weight: 0, height: 0, age: 15, gender: ProgramsandPhyscal.gender.male))
 }
