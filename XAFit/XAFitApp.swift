@@ -11,7 +11,7 @@ import SwiftUI
 struct XAFitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(user: UserDataModel())
+            ContentView()
         }
     }
 }

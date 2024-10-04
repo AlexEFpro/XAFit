@@ -14,34 +14,38 @@ struct FormView: View {
             Form{
                 Section{
                     WeightPickerView()
-                       
+                    
                     
                 }
                 .scaledToFit()
                 Section{
                     HeightPickerView()
                 }
-                    .scaledToFit()
+                .scaledToFit()
                 Section{
                     HStack{
                         agePicker(userData: user)
+                            .padding()
+                        genderPicker(userData: user)
+                        
                     }
                 }
+                
                 
             }
             
         }
         
         
-       
-            
-       
-                    
-           
-            
-            
-       
-       
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -53,5 +57,5 @@ struct FormView: View {
 
 #Preview {
     
-    FormView(user: UserDataModel(weight: 0, height: 0, age: 15, gender: ProgramsandPhyscal.gender.male))
+    FormView()
 }

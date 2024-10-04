@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var user : UserDataModel
+   
    
     var body: some View {
         
@@ -29,5 +29,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView(user: UserDataModel(weight: 0, height: 0, age: 15, gender: ProgramsandPhyscal.gender.male))
+    ContentView()
 }
