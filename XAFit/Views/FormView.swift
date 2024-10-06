@@ -13,13 +13,19 @@ struct FormView: View {
         NavigationStack {
             Form{
                 Section{
-                    WeightPickerView()
+                    
+                    WeightPickerView(user: user)
+                        .frame(width: 250, height: 250, alignment: .center)
+                        .scaledToFit()
+                    
                     
                     
                 }
-                .scaledToFit()
+                
                 Section{
-                    HeightPickerView()
+                    HeightPickerView(user: user)
+                        .frame(width: 250, height: 250, alignment: .center)
+                        .scaledToFit()
                 }
                 .scaledToFit()
                 Section{
@@ -29,6 +35,37 @@ struct FormView: View {
                         genderPicker(userData: user)
                         
                     }
+                    Section{
+                        
+                        
+                        HStack {
+                            
+                            NavigationLink(destination: RmTestView()){
+                                
+                                Button(action: {}) {
+                                    Text(" Go to Evaluation")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                        .shadow(radius: 10)
+                                }
+                                
+                                
+                            }
+                            
+                        }
+                        .frame(maxWidth: .infinity)
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                    
                 }
                 
                 
