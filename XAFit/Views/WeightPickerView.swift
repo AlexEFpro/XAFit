@@ -17,5 +17,5 @@ struct WeightPickerView: View {
 }
 
 #Preview {
-    WeightPickerView(user: UserDataModel())
+    WeightPickerView(user: UserDataModel(age: 0, gender: .male))
 }

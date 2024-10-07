@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
    
    
     var body: some View {
@@ -15,13 +16,14 @@ struct ContentView: View {
         
         VStack {
             LogoView()
-            Text("Enter Your Data")
+                
                 .font(.title.bold())
             
             
             
             TabMenuView()
         }
+        .navigationTitle("Enter Yor Data")
         
         
     }

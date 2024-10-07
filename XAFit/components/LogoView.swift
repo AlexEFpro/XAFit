@@ -16,8 +16,14 @@ struct LogoView: View {
                 .scaledToFit()
                 .frame(width: 100, height: 100,alignment: .center)
                 .padding(.leading)
-            Spacer()
+            
+            Text("XAFit")
+                .font(.largeTitle .bold())
+                .foregroundStyle(.blue)
+                
+            
         }
+        
         }
         
 }

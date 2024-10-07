@@ -9,7 +9,25 @@ import SwiftUI
 
 struct RmTestView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+        
+            TimerView(tm: TimeRmModel())
+                .padding()
+            HStack(alignment: .center){
+                Spacer()
+                Text("Perfom each one of the exercises without compromise the technique with a middle weight and register the reps, and weigth, if you select the calisthenics evaluation select yor weight")
+                Spacer()
+            }
+            
+            ScrollView{
+                
+            }
+            
+        }
+        .navigationTitle("Evaluation")
+        
+        
+        
     }
 }
 

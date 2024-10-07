@@ -19,5 +19,5 @@ struct HeightPickerView: View {
 }
 
 #Preview {
-    HeightPickerView(user: UserDataModel())
+    HeightPickerView(user: UserDataModel(age: 15, gender: .male))
 }

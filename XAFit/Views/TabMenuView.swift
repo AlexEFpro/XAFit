@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabMenuView: View {
-   
+    
     
     var body: some View {
         TabView{
@@ -16,7 +16,7 @@ struct TabMenuView: View {
                 FormView()
             }
             Tab("",systemImage: "list.bullet.clipboard"){
-                EvaluationView()
+                RmTestView()
             }
             Tab("",systemImage: "figure.strengthtraining.traditional"){
                 QuickTrainingView()

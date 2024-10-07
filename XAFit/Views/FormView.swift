@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FormView: View {
     @StateObject var user = UserDataModel()
+    @State private var ageSelected : Double = 15
+    @State private var genderSelected : ProgramsandPhyscal.gender = .male
     var body: some View {
         NavigationStack {
             Form{
@@ -30,9 +32,9 @@ struct FormView: View {
                 .scaledToFit()
                 Section{
                     HStack{
-                        agePicker(userData: user)
+                        agePicker(ageSelected: $ageSelected, user: user)
                             .padding()
-                        genderPicker(userData: user)
+                        genderPicker(genderSelected: $genderSelected, user: user)
                         
                     }
                     Section{
