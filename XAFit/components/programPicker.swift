@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct programPicker: View {
+    @State private var selectedProgram: ProgramsandPhyscal.program = .callistenichs
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker("Select your kind of program", selection: $selectedProgram) {
+            ForEach(ProgramsandPhyscal.program.allCases, id: \.self) { program in
+                Text(program.rawValue)
+                    .tag(program)  
+            }
+        }
     }
 }
 
