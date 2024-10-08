@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct programPicker: View {
-    @ObservedObject var user : UserDataModel
-    @State private var selectedProgram: ProgramsandPhyscal.Program = .callistenichs
+    @ObservedObject var pr : ProgramsandPhyscal
+    
     
     var body: some View {
-        Picker("Select your kind of program", selection: $selectedProgram) {
+        Picker("Select your kind of program", selection: $pr.selectedProgram) {
             ForEach(ProgramsandPhyscal.Program.allCases, id: \.self) { program in
                 Text(program.rawValue)
                     .tag(program)  
@@ -23,5 +23,5 @@ struct programPicker: View {
 }
 
 #Preview {
-    programPicker(user: UserDataModel())
+    programPicker(pr: ProgramsandPhyscal())
 }

@@ -25,6 +25,9 @@ struct RmExercisePicker: View {
                 repPicker()
             }
         }
+        .onAppear{
+//            pr.updateTestExercises()
+        }
         
         
     }

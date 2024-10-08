@@ -8,10 +8,19 @@
 import Foundation
 class ProgramsandPhyscal : ObservableObject {
     
-    @Published var selectedProgram : Program = .callistenichs
+    @Published var selectedProgram : Program = .callistenichs{
+        didSet{
+            updateTestExercises()
+        }
+    }
+    
     var indexTestExercise = 0
     var testCurrentExerciseIndex: String{ //exercise
         return selectedProgram.exercises[indexTestExercise]
+    }
+    func updateTestExercises(){
+        indexTestExercise = 0
+        
     }
     
     enum gender : String, CaseIterable, Identifiable{
@@ -34,9 +43,9 @@ class ProgramsandPhyscal : ObservableObject {
             case .callistenichs:
                 return["Push-up","Pull-up","Dip","Chin-up","Pike push-up","Air squats","Dorsal raises","Scissor Lunge","Bridge","Lateral leg-raise", "Back kick", "Calf rise"]
             case.gym:
-                return["Bench press", "Lat-pulldown","Cable tricep extensión", "Shoulder press","Squat", "Deadlift","Quads Extension", "Femoral Flexión", "Abduction machine", "Adduction machine","Calf raise"]
+                return["Bench press", "Lat-pulldown","Cable tricep extensión", "Shoulder press","Barbell biceps curl","Squat", "Deadlift","Quads Extension", "Femoral Flexión", "Abduction machine", "Adduction machine","Calf raise"]
             case.functional:
-                return["Kb chest-press","Pull-Up","Kb Clean","Kb Shoulder press","Kb front squat", "Kb Deadlift","Kb reverse lunge","Kb hip thrust","Kb side lunge ", "Kb Cossack", "Kb calf rise"]
+                return["Kb chest-press","Pull-Up","Kb French press","Kb Clean","Kb Shoulder press","Kb front squat", "Kb Deadlift","Kb reverse lunge","Kb hip thrust","Kb side lunge ", "Kb Cossack", "Kb calf rise"]
             }
         }
         

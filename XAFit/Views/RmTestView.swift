@@ -22,7 +22,7 @@ struct RmTestView: View {
                             .font(.callout .bold())
                     }
                         Section{
-                            programPicker(user: user)
+                            programPicker(pr : pr)
                             
                         }
                     ScrollView{
