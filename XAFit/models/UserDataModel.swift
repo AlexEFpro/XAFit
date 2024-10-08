@@ -15,6 +15,8 @@ class UserDataModel : ObservableObject{
     
     @Published var age: Double = 15
     
+    @Published var program : ProgramsandPhyscal.Program = .callistenichs
+    
     
     
     @Published var gender: ProgramsandPhyscal.gender = .male

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RmTestView: View {
+    @ObservedObject var user : UserDataModel
+    @ObservedObject var pr : ProgramsandPhyscal
     var body: some View {
         VStack{
             
@@ -20,9 +22,38 @@ struct RmTestView: View {
                             .font(.callout .bold())
                     }
                         Section{
-                            programPicker()
+                            programPicker(user: user)
+                            
                         }
                     ScrollView{
+                        Section{
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:0)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:1)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:2)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:3)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:4)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:5)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:6)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:7)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:8)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:9)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:10)
+                            
+                            RmExercisePicker(pr: pr, indexTestExercise:11)
+                            
+                        }
+                        
                         
                     }
                     
@@ -42,5 +73,5 @@ struct RmTestView: View {
 }
 
 #Preview {
-    RmTestView()
+    RmTestView(user: UserDataModel(), pr: ProgramsandPhyscal())
 }

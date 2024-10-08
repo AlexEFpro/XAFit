@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct weightRmPicker: View {
+    @State var rmWeightSelected: Double = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker("Weight", selection: $rmWeightSelected) {
+            ForEach(0...200, id: \.self) { weight in
+                Text("\(weight)")
+                    .tag(Double(weight))  //
+            }
+        }
     }
 }
 

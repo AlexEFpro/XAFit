@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct RmExercisePicker: View {
+    
+    @ObservedObject var pr : ProgramsandPhyscal
+    var indexTestExercise :Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack{
+            Text("\(pr.selectedProgram.exercises[indexTestExercise])")
+                .font(.title2.bold())
+                .foregroundStyle(.blue)
+            HStack{
+                Text("Weight:")
+                weightRmPicker()
+                Text("Reps")
+                repPicker()
+            }
+        }
+        
+        
     }
 }
 
 #Preview {
-    RmExercisePicker()
+    RmExercisePicker( pr: ProgramsandPhyscal(), indexTestExercise: 1)
 }

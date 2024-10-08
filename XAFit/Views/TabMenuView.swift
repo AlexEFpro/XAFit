@@ -16,7 +16,7 @@ struct TabMenuView: View {
                 FormView()
             }
             Tab("",systemImage: "list.bullet.clipboard"){
-                RmTestView()
+                
             }
             Tab("",systemImage: "figure.strengthtraining.traditional"){
                 QuickTrainingView()

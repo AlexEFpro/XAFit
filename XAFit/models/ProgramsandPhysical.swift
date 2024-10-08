@@ -6,7 +6,13 @@
 //
 
 import Foundation
-class ProgramsandPhyscal{
+class ProgramsandPhyscal : ObservableObject {
+    
+    @Published var selectedProgram : Program = .callistenichs
+    var indexTestExercise = 0
+    var testCurrentExerciseIndex: String{ //exercise
+        return selectedProgram.exercises[indexTestExercise]
+    }
     
     enum gender : String, CaseIterable, Identifiable{
         case male = "men"
@@ -16,7 +22,7 @@ class ProgramsandPhyscal{
         
     }
     
-    enum program : String, CaseIterable, Identifiable{
+    enum Program : String, CaseIterable, Identifiable{
         
         case callistenichs = "Callistenichs"
         case gym = "Gym"
@@ -34,11 +40,12 @@ class ProgramsandPhyscal{
             }
         }
         
-        
-        
     }
-    
-    
-    
    
+    
+    
+    
+    
+    
+    
 }

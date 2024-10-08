@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FormView: View {
+    @ObservedObject var pr = ProgramsandPhyscal()
     @StateObject var user = UserDataModel()
     @State private var ageSelected : Double = 15
     @State private var genderSelected : ProgramsandPhyscal.gender = .male
@@ -42,7 +43,7 @@ struct FormView: View {
                         
                         HStack {
                             
-                            NavigationLink(destination: RmTestView()){
+                            NavigationLink(destination: RmTestView(user: user, pr: pr)){
                                 
                                 Button(action: {}) {
                                     Text(" Go to Evaluation")
@@ -96,5 +97,5 @@ struct FormView: View {
 
 #Preview {
     
-    FormView()
+    FormView(pr: ProgramsandPhyscal())
 }
