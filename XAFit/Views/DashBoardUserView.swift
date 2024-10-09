@@ -9,21 +9,91 @@ import SwiftUI
 
 struct DashBoardUserView: View {
     @ObservedObject var user: UserDataModel
+    @ObservedObject var pr : ProgramsandPhyscal
     var body: some View {
-        Form{
-            Section{
-                Text("Name: Name")
-                Text("ss")
+        NavigationStack{
+            Form{
+                Section{
+                    VStack{
+                        Text("Profile:")
+                            .font(.title.bold())
+                            .foregroundStyle(.blue)
+                        HStack{
+                            
+                            Text("Name:")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text("Name")
+                            Spacer()
+                        }
+                        HStack{
+                            Text("Weight:")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text(String(format: "%.1f", user.weight))
+                            weightRmPicker()
+                            
+                        }
+                        HStack{
+                            Text("Height:")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text(String(format:"%.1f",user.height))
+                            Spacer()
+                        }
+                        HStack{
+                            
+                            Text("Age:")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text(String(format:"%.0f",user.age))
+                            Spacer()
+                        }
+                    }
+                   
+                    
+                    
+                    
+                
+                }
+                Section{
+                    VStack{
+                        
+                            Text("Program")
+                            .font(.title.bold())
+                            .foregroundStyle(.blue)
+                            programPicker(pr: pr)
+                            .font(.title2.bold())
+                    
+                    }
+                   
+                }
+                Section{
+                    VStack{
+                        Text("Training Data")
+                            .font(.title.bold())
+                            .foregroundStyle(.blue)
+                        HStack{
+                            Text("Total sesions")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text("0")
+                                .bold()
+                            
+                        }
+                    }
+                    
+                }
+                
+                
             }
-            Section{}
-            Section{}
-            
-            
         }
         
+        .navigationTitle("Dashboard")
     }
+        
 }
 
 #Preview {
-    DashBoardUserView(user: UserDataModel())
+    DashBoardUserView(user: UserDataModel(), pr: ProgramsandPhyscal())
 }

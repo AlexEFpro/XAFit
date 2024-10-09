@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FormView: View {
-    @ObservedObject var pr = ProgramsandPhyscal()
+    @ObservedObject var pr : ProgramsandPhyscal
     @ObservedObject var user : UserDataModel
     @State private var ageSelected : Double = 15
     @State private var genderSelected : ProgramsandPhyscal.gender = .male

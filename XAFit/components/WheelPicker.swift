@@ -88,5 +88,5 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView( pr: ProgramsandPhyscal())
 }
