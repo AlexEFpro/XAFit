@@ -16,13 +16,13 @@ struct TimerView<Model:CronoProtocol>: View {
             //level1  external background
             Circle()
                 .stroke(lineWidth: 24)
-                .frame(width: 200, height:200 )
+                .frame(width: 180, height:180 )
                 .foregroundStyle(.white)
                 .shadow(color: Color.blue.opacity(0.1), radius: 10 , x:10, y:10)
             //level2 inernal background
             Circle()
                 .stroke(lineWidth: 0.34)
-                .frame(width: 175, height: 175)
+                .frame(width: 155, height: 155)
                 .foregroundStyle(LinearGradient(
                     gradient: Gradient(colors: [.green .opacity(0.3), .blue]),
                     startPoint: .bottomTrailing,
@@ -44,7 +44,7 @@ struct TimerView<Model:CronoProtocol>: View {
             Circle()
                 .trim(from: 0, to: tm.showValue ? tm.displayValue : 0)
                 .stroke(style:StrokeStyle(lineWidth: 24 , lineCap:.round ))
-                .frame(width: 200 , height: 200)
+                .frame(width: 180 , height: 180)
                 .rotationEffect(.degrees(-90))
                 .foregroundStyle(LinearGradient(
                     gradient: Gradient(colors: [.green , .blue]),
@@ -81,6 +81,12 @@ struct TimerView<Model:CronoProtocol>: View {
             
             
             
+        }
+        .padding()
+        HStack{
+            Text("Sets: \(tm.sets) ")
+                .font(.title.bold())
+                .foregroundStyle(.blue)
         }
         
         

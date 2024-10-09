@@ -14,8 +14,11 @@ protocol CronoProtocol: ObservableObject{
     var setTime : Double{get set}
     var timer : Timer? {get set}
     var isPaused : Bool {get set}
+    var isResting : Bool {get set}
+    var sets : Int {get set}
     func startTimer()
     func stopTimer()
     func resumeTimer()
     func pauseTimer()
+    func countingSets()
 }

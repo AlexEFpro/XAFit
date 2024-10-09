@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormView: View {
     @ObservedObject var pr = ProgramsandPhyscal()
-    @StateObject var user = UserDataModel()
+    @ObservedObject var user : UserDataModel
     @State private var ageSelected : Double = 15
     @State private var genderSelected : ProgramsandPhyscal.gender = .male
     var body: some View {
@@ -97,5 +97,5 @@ struct FormView: View {
 
 #Preview {
     
-    FormView(pr: ProgramsandPhyscal())
+    FormView(pr: ProgramsandPhyscal(), user: UserDataModel())
 }

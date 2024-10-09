@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct ExerciseDisplay: View {
+    @ObservedObject var pr:ProgramsandPhyscal
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button("", systemImage: "lessthan", action: pr.previusExercise)
+                .font(.title2.bold())
+                .foregroundStyle(.blue)
+                
+                
+            Text("\(pr.selectedProgram.exercises[pr.indexTestExercise])")
+                .font(.title.bold())
+                .foregroundStyle(.blue)
+            
+            Button("", systemImage: "greaterthan", action: pr.nextExercise)
+                .font(.title2.bold())
+                .foregroundStyle(.blue)
+        }
     }
 }
 
 #Preview {
-    ExerciseDisplay()
+    ExerciseDisplay(pr: ProgramsandPhyscal())
 }

@@ -17,17 +17,29 @@ class TimeRmModel: ObservableObject, CronoProtocol{
     @Published var showValue : Bool
     @Published var value : Double
     @Published var displayDigits : Double
+    @Published var sets : Int
+    @Published var isResting: Bool
     
-    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 50, isPaused: Bool = false) {
+    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 50, isPaused: Bool = false, sets: Int = 0, isResting: Bool = false) {
         self.displayValue = displayValue
         self.showValue = showValue
         self.value = value
         self.displayDigits = displayDigits
         self.setTime = setTime
         self.isPaused = isPaused
+        self.sets = sets
+        self.isResting = isResting
+        
     }
     //    var color : Color
     // view of numbers
+    
+    func countingSets(){
+        if displayValue >= 1.0{
+            sets += 1
+            isResting = true
+        }
+    }
     
     
     func startTimer() {

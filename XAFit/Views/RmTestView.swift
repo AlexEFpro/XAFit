@@ -12,9 +12,13 @@ struct RmTestView: View {
     @ObservedObject var pr : ProgramsandPhyscal
     var body: some View {
         VStack{
+            VStack{
+                TimerView(tm: TimeRmModel())
+                   
+                ExerciseDisplay(pr: pr)
+            }
             
-            TimerView(tm: TimeRmModel())
-                .padding()
+            
             
                 Form{
                     Section{
@@ -56,6 +60,24 @@ struct RmTestView: View {
                         
                         
                     }
+                    .padding()
+                    
+                    
+                    NavigationLink(destination: WorkoutView() ){
+                        
+                        Button(action: {}) {
+                            Text("Let´s Workout ")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                                .shadow(radius: 10)
+                        }
+                        
+                        
+                    }
                     
                 }
             
@@ -65,7 +87,7 @@ struct RmTestView: View {
             
             
         }
-        .navigationTitle("Evaluation")
+       
         
         
         

@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct TabMenuView: View {
+    @ObservedObject var user : UserDataModel
     
     
     var body: some View {
         TabView{
             Tab("",systemImage: "person"){
-                FormView()
+                FormView( user: user)
             }
             Tab("",systemImage: "list.bullet.clipboard"){
+                DashBoardUserView(user:user)
                 
             }
             Tab("",systemImage: "figure.strengthtraining.traditional"){
@@ -26,5 +28,5 @@ struct TabMenuView: View {
 }
 
 #Preview {
-    TabMenuView()
+    TabMenuView(user: UserDataModel())
 }

@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct DashBoardUserView: View {
+    @ObservedObject var user: UserDataModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form{
+            Section{
+                Text("Name: Name")
+                Text("ss")
+            }
+            Section{}
+            Section{}
+            
+            
+        }
+        
     }
 }
 
 #Preview {
-    DashBoardUserView()
+    DashBoardUserView(user: UserDataModel())
 }

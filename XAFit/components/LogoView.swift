@@ -14,15 +14,16 @@ struct LogoView: View {
             Image("Logo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100,alignment: .center)
+                .frame(width: 80, height: 80,alignment: .center)
                 .padding(.leading)
             
             Text("XAFit")
-                .font(.largeTitle .bold())
+                .font(.title .bold())
                 .foregroundStyle(.blue)
                 
             
         }
+        
         
         }
         
