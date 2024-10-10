@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct WorkoutView: View {
+    @ObservedObject var user: UserDataModel
     var body: some View {
-        Text("Workout View")
+        TimerView(tm: WorkoutCronoModel( user: user))
     }
 }
 
 #Preview {
-    WorkoutView()
+    WorkoutView(user: UserDataModel())
 }

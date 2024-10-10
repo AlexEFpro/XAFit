@@ -63,7 +63,7 @@ struct RmTestView: View {
                     .padding()
                     
                     
-                    NavigationLink(destination: WorkoutView() ){
+                    NavigationLink(destination: WorkoutView(user: user) ){
                         
                         Button(action: {}) {
                             Text("Let´s Workout ")

@@ -8,22 +8,37 @@
 import Foundation
 import SwiftUICore
 class TimeManager : ObservableObject, CronoProtocol{
+    var showAlert: Bool
+    
+    
+    
     
     
     @Published var sets: Int
+    
     @Published var isResting: Bool
+    
     
     @Published var isPaused: Bool
     
+    
     internal var timer: Timer?
     
-    @Published var setTime: Double // time of sets
+    
+    @Published var setTime: Double
+    // time of sets
     @Published var displayValue : Double
+    
     @Published var showValue : Bool
+    
+    @Published var restValue: Double
+    
     @Published var value : Double
+    
     @Published var displayDigits : Double
     
-    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 60, isPaused: Bool = false, sets: Int = 0, isResting: Bool = false) {
+    
+    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 60, isPaused: Bool = false, sets: Int = 0, isResting: Bool = false, restValue: Double = 0.0, showAlert:Bool = false) {
         self.displayValue = displayValue
         self.showValue = showValue
         self.value = value
@@ -32,6 +47,8 @@ class TimeManager : ObservableObject, CronoProtocol{
         self.isPaused = isPaused
         self.sets = sets
         self.isResting = isResting
+        self.restValue = restValue
+        self.showAlert = showAlert
     }
     //    var color : Color
     // view of numbers
@@ -83,6 +100,8 @@ class TimeManager : ObservableObject, CronoProtocol{
         displayValue = 0.0
         displayDigits = 0.0
         sets = 0
+        isResting = false
+        restValue = 0.0
         
     }
     func countingSets() {

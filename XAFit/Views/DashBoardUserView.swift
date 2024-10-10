@@ -56,18 +56,7 @@ struct DashBoardUserView: View {
                     
                 
                 }
-                Section{
-                    VStack{
-                        
-                            Text("Program")
-                            .font(.title.bold())
-                            .foregroundStyle(.blue)
-                            programPicker(pr: pr)
-                            .font(.title2.bold())
-                    
-                    }
-                   
-                }
+                
                 Section{
                     VStack{
                         Text("Training Data")
@@ -79,10 +68,42 @@ struct DashBoardUserView: View {
                             Spacer()
                             Text("0")
                                 .bold()
-                            
+                        }
+                        Spacer()
+                        HStack{
+                            Text("Pull Rm")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text("0")
+                        }
+                        Spacer()
+                        HStack{
+                            Text("Push Rm")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text("0")
+                        }
+                        Spacer()
+                        HStack{
+                            Text("Squat Rm")
+                                .font(.title2.bold())
+                            Spacer()
+                            Text("0")
                         }
                     }
                     
+                }
+                Section{
+                    VStack{
+                        
+                            Text("Program")
+                            .font(.title.bold())
+                            .foregroundStyle(.blue)
+                            programPicker(pr: pr)
+                            .font(.title2.bold())
+                    
+                    }
+                   
                 }
                 
                 

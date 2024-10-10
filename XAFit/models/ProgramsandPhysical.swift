@@ -59,12 +59,41 @@ class ProgramsandPhyscal : ObservableObject {
             }
         }
         
+        
     }
-   
     
+//    enum TrainingPhase {
+//        case phase1(TrainingType)
+//        case phase2(TrainingType)
+//        case phase3(TrainingType)
+//
+//        // Enum anidado: Tipos de entrenamiento
+//        enum TrainingType {
+//            case gym(Segment)
+//            case functional(Segment)
+//            case calisthenics(Segment)
+//
+//            // Enum anidado: Segmentos a trabajar (high, low, fullbody)
+//            enum Segment {
+//                case high([String])      // Ejercicios de alta intensidad
+//                case low([String])       // Ejercicios de baja intensidad
+//                case fullbody([String])  // Ejercicios de cuerpo completo
+//            }
+//        }
+//        func getExercises()->[String]{
+//            switch self{
+//            case: .phase1(.calisthenics(.fullbody(
+//                return:[])))
+//            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
-    
-    
-    
-    
-}
+

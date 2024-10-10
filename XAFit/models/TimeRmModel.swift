@@ -7,20 +7,33 @@
 
 import Foundation
 
-class TimeRmModel: ObservableObject, CronoProtocol{
+class
+TimeRmModel: ObservableObject, CronoProtocol{
+    @Published var showAlert: Bool
+    
+    
     @Published var isPaused: Bool
     
     internal var timer: Timer?
     
-    @Published var setTime: Double // time of sets
+    @Published var setTime: Double
+    // time of sets
     @Published var displayValue : Double
+    
     @Published var showValue : Bool
+    
+    @Published var restValue: Double
+    
     @Published var value : Double
+    
     @Published var displayDigits : Double
+    
     @Published var sets : Int
+    
     @Published var isResting: Bool
     
-    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 50, isPaused: Bool = false, sets: Int = 0, isResting: Bool = false) {
+    
+    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime : Double = 50, isPaused: Bool = false, sets: Int = 0, isResting: Bool = false, restValue: Double = 0.0, showAlert : Bool = false){
         self.displayValue = displayValue
         self.showValue = showValue
         self.value = value
@@ -29,6 +42,8 @@ class TimeRmModel: ObservableObject, CronoProtocol{
         self.isPaused = isPaused
         self.sets = sets
         self.isResting = isResting
+        self.restValue = restValue
+        self.showAlert = showAlert
         
     }
     //    var color : Color

@@ -17,15 +17,18 @@ class UserDataModel : ObservableObject{
     
     @Published var program : ProgramsandPhyscal.Program = .callistenichs
     
+    @Published var sesions : Int
+    
     
     
     @Published var gender: ProgramsandPhyscal.gender = .male
     
-    init(weight: Double = 0, height: Double = 0, age: Double = 15 , gender: ProgramsandPhyscal.gender = .male ) {
+    init(weight: Double = 0, height: Double = 0, age: Double = 15 , gender: ProgramsandPhyscal.gender = .male, sesions: Int = 0 ) {
         self.weight = weight
         self.height = height
         self.age = age
         self.gender = gender
+        self.sesions = sesions
         
     }
     
