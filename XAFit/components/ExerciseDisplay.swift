@@ -18,7 +18,7 @@ struct ExerciseDisplay: View {
                 
                 
             Text("\(pr.selectedProgram.exercises[pr.indexTestExercise])")
-                .font(.title.bold())
+                .font(.title2.bold())
                 .foregroundStyle(.blue)
             
             Button("", systemImage: "greaterthan", action: pr.nextExercise)

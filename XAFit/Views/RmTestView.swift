@@ -23,7 +23,7 @@ struct RmTestView: View {
                 Form{
                     Section{
                         Text("Perfom each one of the exercises without compromise the technique with a middle weight and register the reps, and weigth, if you select the calisthenics evaluation select yor weight")
-                            .font(.callout .bold())
+                            .font(.body .bold())
                     }
                         Section{
                             programPicker(pr : pr)

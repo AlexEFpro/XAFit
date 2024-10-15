@@ -28,9 +28,9 @@ struct FinishButton: View {
             
         }
         .buttonStyle(.borderedProminent)
-        .font(.largeTitle.bold())
+        .font(.title.bold())
         Text(String("Workouts : \(workouts)"))
-            .font(.title.bold())
+            .font(.title2.bold())
             .alert("Are you sure to end the session?", isPresented: $workoutsEnds){
                 Button("Yes", action:countingWorkout)
                 Button("Cancel", role: .cancel){}

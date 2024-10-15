@@ -104,7 +104,7 @@ struct TimerView<Model:CronoProtocol>: View {
             .padding()
             HStack{
                 Text("Sets: \(tm.sets) ")
-                    .font(.title.bold())
+                    .font(.title2.bold())
                     .foregroundStyle(.blue)
             }
         }

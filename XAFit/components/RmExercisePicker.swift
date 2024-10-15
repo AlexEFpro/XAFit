@@ -16,7 +16,7 @@ struct RmExercisePicker: View {
         
         VStack{
             Text("\(pr.selectedProgram.exercises[indexTestExercise])")
-                .font(.title2.bold())
+                .font(.title3.bold())
                 .foregroundStyle(.blue)
             HStack{
                 Text("Weight:")
