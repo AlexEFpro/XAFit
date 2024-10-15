@@ -15,6 +15,7 @@ struct SegmentTrainingPicker: View {
         }
         List(pr.selectedProgram.segmentExercise(for: pr.selectedSegment),id: \.self){exercise in Text(exercise)
             .font(.body.bold()
+            
                   
             )}
     }

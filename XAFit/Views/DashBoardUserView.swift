@@ -94,24 +94,28 @@ struct DashBoardUserView: View {
                     
                 }
                 Section{
-                    VStack{
-                        
-                            Text("Program")
-                            .font(.title.bold())
-                            .foregroundStyle(.blue)
-                            programPicker(pr: pr)
-                            .font(.title2.bold())
-                        Spacer()
-                        SegmentTrainingPicker(pr: pr)
-                        
-                        Spacer()
-                        
-                        
                     
-                    }
+                        VStack{
+                            
+                                Text("Program")
+                                .font(.title.bold())
+                                .foregroundStyle(.blue)
+                                programPicker(pr: pr)
+                                .font(.title2.bold())
+                            Spacer()
+                            SegmentTrainingPicker(pr: pr)
+                                .font(.title3.bold())
+                            Spacer()
+                            StartSesionButton()
+                           
+                        }
+                    
+                    
+                   
+                  
                    
                 }
-                
+               
                 
             }
         }

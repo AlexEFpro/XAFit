@@ -15,6 +15,7 @@ struct StartSesionButton: View {
     var body: some View {
         Button(action:{workoutStart = true}){
             Text("Start Session")
+                .font(.title.bold())
             
         }
         .buttonStyle(.borderedProminent)
