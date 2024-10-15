@@ -12,6 +12,7 @@ struct WeightPickerView: View {
     @StateObject private var weightModel = WeightPickerConfigModel()
     var body: some View {
         WheelPicker(model: weightModel)
+            .frame(width: 200, height: 150, alignment: .center)
             .onChange(of: weightModel.value, initial: true) {oldValue , newValue in user.weight = Double(newValue)}
     }
 }

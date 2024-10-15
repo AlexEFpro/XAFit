@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct StartSesionButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @State var workoutStart: Bool = false
+    func workoutStarted(){
+        print("Workout Started")
     }
+    var body: some View {
+        Button(action:{workoutStart = true}){
+            Text("Start Session")
+            
+        }
+        .buttonStyle(.borderedProminent)
+        .font(.largeTitle.bold())
+        .alert("READY TO START", isPresented: $workoutStart){
+            Button("Yes", action:workoutStarted)
+            Button("Cancel", role: .cancel){}
+        }
+        
+    }
+    
 }
-
 #Preview {
     StartSesionButton()
 }

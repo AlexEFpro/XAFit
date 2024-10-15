@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FinishButton: View {
+    
     @State var workoutsEnds : Bool = false
     @State var workouts : Int = 0
     func countingWorkout(){
@@ -23,7 +24,7 @@ struct FinishButton: View {
             
         })
         {
-            Text("Finish Workout")
+            Text("Ends Workout")
             
         }
         .buttonStyle(.borderedProminent)
@@ -40,5 +41,6 @@ struct FinishButton: View {
 }
 
 #Preview {
+    
     FinishButton()
 }

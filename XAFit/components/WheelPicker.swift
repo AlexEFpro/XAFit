@@ -14,23 +14,23 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
     var body: some View {
         GeometryReader{
             let size = $0.size
-            let horizontalPadding = size.width/2
+            let horizontalPadding = size.width
             VStack{
                 HStack{
                     let units = CGFloat(model.steps)*CGFloat(model.value)
                     Text(verbatim : "\(model.value)")
-                        .font(.title.bold())
+                        .font(.title2.bold())
                         .contentTransition(.numericText(value: units))
                         .animation(.snappy, value: model.value)
                     Text("\(model.units)")
-                        .font(.title2)
+                        .font(.body)
                         .fontWeight(.semibold)
                         .textScale(.secondary)
                         .foregroundStyle(.blue)
                 
                         
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 2)
                 ScrollView(.horizontal){
                     HStack(spacing:model.spacing){
                         
@@ -42,7 +42,7 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
                             
                             Divider()
                                 .background(remainder == 0 ? Color.primary: .gray)
-                                .frame(width: 0 , height: remainder == 0 ? 20 : 10, alignment: .center)
+                                .frame(width: 0 , height: remainder == 0 ? 15 : 10, alignment: .center)
                                 .frame(maxHeight: 20, alignment: .bottom) // big marks
                                 .overlay(alignment:.bottom){
                                     if remainder == 0 && model.showText{
@@ -57,7 +57,7 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
                                 }
                         }
                     }
-                    .frame(height: size.height)
+                    .frame(height: size.height) //height scrollView
                     .scrollTargetLayout()
                 }
                 .scrollIndicators(.hidden)

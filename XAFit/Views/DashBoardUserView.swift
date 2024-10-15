@@ -69,27 +69,27 @@ struct DashBoardUserView: View {
                             Text("0")
                                 .bold()
                         }
-                        Spacer()
-                        HStack{
-                            Text("Pull Rm")
-                                .font(.title2.bold())
-                            Spacer()
-                            Text("0")
-                        }
-                        Spacer()
-                        HStack{
-                            Text("Push Rm")
-                                .font(.title2.bold())
-                            Spacer()
-                            Text("0")
-                        }
-                        Spacer()
-                        HStack{
-                            Text("Squat Rm")
-                                .font(.title2.bold())
-                            Spacer()
-                            Text("0")
-                        }
+//                        Spacer()
+//                        HStack{
+//                            Text("Pull Rm")
+//                                .font(.title2.bold())
+//                            Spacer()
+//                            Text("0")
+//                        }
+//                        Spacer()
+//                        HStack{
+//                            Text("Push Rm")
+//                                .font(.title2.bold())
+//                            Spacer()
+//                            Text("0")
+//                        }
+//                        Spacer()
+//                        HStack{
+//                            Text("Squat Rm")
+//                                .font(.title2.bold())
+//                            Spacer()
+//                            Text("0")
+//                        }
                     }
                     
                 }
@@ -101,6 +101,15 @@ struct DashBoardUserView: View {
                             .foregroundStyle(.blue)
                             programPicker(pr: pr)
                             .font(.title2.bold())
+                        Spacer()
+                        List( pr.selectedProgram.exercises, id:\.self){
+                            exercise in Text(exercise)
+                                .font(.callout.bold())
+                                .foregroundStyle(.blue)
+                        }
+                        Spacer()
+                        
+                        
                     
                     }
                    

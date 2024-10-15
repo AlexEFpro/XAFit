@@ -9,11 +9,15 @@ import SwiftUI
 
 struct WorkoutView: View {
     @ObservedObject var user: UserDataModel
+   
     var body: some View {
         TimerView(tm: WorkoutCronoModel( user: user))
+        FinishButton()
     }
 }
 
 #Preview {
-    WorkoutView(user: UserDataModel())
+    let user = UserDataModel()
+   
+    WorkoutView(user: user)
 }

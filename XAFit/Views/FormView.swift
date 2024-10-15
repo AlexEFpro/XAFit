@@ -18,16 +18,15 @@ struct FormView: View {
                 Section{
                     
                     WeightPickerView(user: user)
-                        .frame(width: 250, height: 250, alignment: .center)
-                        .scaledToFit()
-                    
-                    
+                        .frame(width: 180, height: 150, alignment: .center)
+                 
                     
                 }
+                .scaledToFit()
                 
                 Section{
                     HeightPickerView(user: user)
-                        .frame(width: 250, height: 250, alignment: .center)
+                        .frame(width: 180, height: 150, alignment: .center)
                         .scaledToFit()
                 }
                 .scaledToFit()
@@ -38,6 +37,9 @@ struct FormView: View {
                         genderPicker(genderSelected: $genderSelected, user: user)
                         
                     }
+                    .frame(height: 200)
+                   
+                    
                     Section{
                         
                         
