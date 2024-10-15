@@ -102,11 +102,8 @@ struct DashBoardUserView: View {
                             programPicker(pr: pr)
                             .font(.title2.bold())
                         Spacer()
-                        List( pr.selectedProgram.exercises, id:\.self){
-                            exercise in Text(exercise)
-                                .font(.callout.bold())
-                                .foregroundStyle(.blue)
-                        }
+                        SegmentTrainingPicker(pr: pr)
+                        
                         Spacer()
                         
                         

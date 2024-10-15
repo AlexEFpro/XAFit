@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct SegmentTrainingPicker: View {
+    @ObservedObject var pr : ProgramsandPhyscal
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker("Select yor segment", selection: $pr.selectedSegment){
+            ForEach(ProgramsandPhyscal.Program.SegmentsPhaseI.allCases){segment in Text(segment.rawValue)}
+        }
+        List(pr.selectedProgram.segmentExercise(for: pr.selectedSegment),id: \.self){exercise in Text(exercise)
+            .font(.body.bold()
+                  
+            )}
     }
 }
 
 #Preview {
-    SegmentTrainingPicker()
+    SegmentTrainingPicker(pr:ProgramsandPhyscal())
 }
