@@ -8,6 +8,36 @@
 import Foundation
 class ProgramsandPhyscal : ObservableObject {
     
+    @Published var user : UserDataModel
+    init(user:UserDataModel, chestWeight:Double = 0,chestReps:Double = 0,backWeight:Double = 0,backReps:Double = 0,bicepWeight:Double = 0,bicepReps:Double = 0,tricepWeight:Double = 0,tricepReps:Double = 0,shoulderWeight:Double = 0,shoulderReps:Double = 0,deadLiftWeight:Double = 0,deadLiftReps:Double = 0,quadsWeight:Double = 0,quadsReps:Double = 0,femoralWeight:Double = 0,femoralReps:Double = 0,squatWeight:Double = 0,squatReps:Double = 0,calfWeight:Double = 0,calfReps:Double = 0,abdWeight:Double = 0,abdReps:Double = 0,addWeight:Double = 0,addReps:Double = 0){
+        self.user = user
+        self.chestWeight = chestWeight
+        self.chestReps = chestReps
+        self.backWeight = backWeight
+        self.backReps = backReps
+        self.bicepWeight = bicepWeight
+        self.bicepReps = bicepReps
+        self.tricepWeight = tricepWeight
+        self.tricepReps = tricepReps
+        self.shoulderWeight = shoulderWeight
+        self.shoulderReps = shoulderReps
+        self.deadLiftWeight = deadLiftWeight
+        self.deadLiftReps = deadLiftReps
+        self.quadsWeight = quadsWeight
+        self.quadsReps = quadsReps
+        self.femoralWeight = femoralWeight
+        self.femoralReps = femoralReps
+        self.squatWeight = squatWeight
+        self.squatReps = squatReps
+        self.calfWeight = calfWeight
+        self.calfReps = calfReps
+        self.abdWeight = abdWeight
+        self.abdReps = abdReps
+        self.addWeight = addWeight
+        self.addReps = addReps
+        
+    }
+    
     @Published var selectedProgram : Program = .callistenichs{
         didSet{
             updateTestExercises()
@@ -16,6 +46,71 @@ class ProgramsandPhyscal : ObservableObject {
     @Published var selectedSegment : Program.SegmentsPhaseI = .FullBody
     
     @Published var indexTestExercise = 0
+    //Rms propertys
+    //Chest
+    @Published var chestWeight:Double
+    @Published var chestReps:Double
+    //back
+    @Published var backWeight:Double
+    @Published var backReps:Double
+    //bicep
+    @Published var bicepWeight:Double
+    @Published var bicepReps:Double
+    //tricep
+    @Published var tricepWeight:Double
+    @Published var tricepReps:Double
+    //shoulder
+    @Published var shoulderWeight:Double
+    @Published var shoulderReps:Double
+    //deadLift
+    @Published var deadLiftWeight:Double
+    @Published var deadLiftReps:Double
+    //quads
+    @Published var quadsWeight:Double
+    @Published var quadsReps:Double
+    //femoral
+    @Published var femoralWeight:Double
+    @Published var femoralReps:Double
+    //squat
+    @Published var squatWeight:Double
+    @Published var squatReps:Double
+    //calf
+    @Published var calfWeight:Double
+    @Published var calfReps:Double
+    //abd
+    @Published var abdWeight:Double
+    @Published var abdReps:Double
+    //add
+    @Published var addWeight:Double
+    @Published var addReps:Double
+    
+    func rmCalc(){
+        user.chestRm = (chestWeight*0.025)*chestReps+chestWeight
+        
+        user.backRm = (backWeight*0.025)*backReps+backWeight
+        
+        user.shoulderRm = (shoulderWeight*0.025)*shoulderReps+shoulderWeight
+        
+        user.bicepRm = (bicepWeight*0.025)*bicepReps+bicepWeight
+        
+        user.tricepRm = (tricepWeight*0.025)*tricepReps+tricepWeight
+        
+        user.squatRm = (squatWeight*0.025)*squatReps+squatWeight
+        
+        user.quadsRm = (quadsWeight*0.025)*quadsReps+quadsWeight
+        
+        user.femoralRm = (femoralWeight*0.025)*femoralReps+femoralWeight
+        
+        user.deadLiftRm = (deadLiftWeight*0.025)*deadLiftReps+deadLiftWeight
+        
+        user.abdRm = (abdWeight*0.025)*abdReps+abdWeight
+        
+        user.addRm = (addWeight*0.025)*addReps+addWeight
+        
+        user.calfRm = (calfWeight*0.025)*calfReps+calfWeight
+        
+    }
+    
     
     var testCurrentExerciseIndex: String{ //exercise
         return selectedProgram.exercises[indexTestExercise]
@@ -93,7 +188,7 @@ class ProgramsandPhyscal : ObservableObject {
         
         
     }
-   
+    
 }
 
 

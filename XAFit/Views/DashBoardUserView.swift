@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DashBoardUserView: View {
-    @ObservedObject var user: UserDataModel
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var user: UserDataModel
+    @EnvironmentObject var pr : ProgramsandPhyscal
     var body: some View {
         NavigationStack{
             Form{
@@ -100,10 +100,10 @@ struct DashBoardUserView: View {
                                 Text("Program")
                                 .font(.title.bold())
                                 .foregroundStyle(.blue)
-                                programPicker(pr: pr)
+                                programPicker()
                                 .font(.title2.bold())
                             Spacer()
-                            SegmentTrainingPicker(pr: pr)
+                            SegmentTrainingPicker()
                                 .font(.title3.bold())
                             Spacer()
                             StartSesionButton()
@@ -126,5 +126,9 @@ struct DashBoardUserView: View {
 }
 
 #Preview {
-    DashBoardUserView(user: UserDataModel(), pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:user)
+    DashBoardUserView()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct genderPicker: View {
     @Binding var genderSelected : ProgramsandPhyscal.gender
-    @ObservedObject var user :  UserDataModel
+    @EnvironmentObject var user :  UserDataModel
     var body: some View {
         Picker("Gender", selection: $genderSelected){
             ForEach(ProgramsandPhyscal.gender.allCases, id: \.self){gender in Text(gender.rawValue)}
@@ -19,5 +19,7 @@ struct genderPicker: View {
 }
 
 #Preview {
-    genderPicker(genderSelected: .constant(.male), user : UserDataModel(age: 0, gender: .male))
+    let user = UserDataModel()
+    genderPicker(genderSelected: .constant(.male))
+        .environmentObject(user)
 }

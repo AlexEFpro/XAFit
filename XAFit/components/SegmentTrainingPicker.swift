@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SegmentTrainingPicker: View {
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var pr : ProgramsandPhyscal
     var body: some View {
         Picker("Select yor segment", selection: $pr.selectedSegment){
             ForEach(ProgramsandPhyscal.Program.SegmentsPhaseI.allCases){segment in Text(segment.rawValue)}
@@ -22,5 +22,9 @@ struct SegmentTrainingPicker: View {
 }
 
 #Preview {
-    SegmentTrainingPicker(pr:ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:user)
+    SegmentTrainingPicker()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

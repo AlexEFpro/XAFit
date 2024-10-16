@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RmExercisePicker: View {
     
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var pr : ProgramsandPhyscal
+    
     var indexTestExercise :Int
     
     var body: some View {
@@ -34,5 +35,8 @@ struct RmExercisePicker: View {
 }
 
 #Preview {
-    RmExercisePicker( pr: ProgramsandPhyscal(), indexTestExercise: 1)
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:user)
+    RmExercisePicker( indexTestExercise: 1)
+        .environmentObject(pr)
 }

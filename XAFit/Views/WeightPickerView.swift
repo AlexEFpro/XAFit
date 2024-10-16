@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct WeightPickerView: View {
-    @ObservedObject var user : UserDataModel
+    @EnvironmentObject var user : UserDataModel
+    
     @StateObject private var weightModel = WeightPickerConfigModel()
+    
     var body: some View {
         WheelPicker(model: weightModel)
             .frame(width: 200, height: 150, alignment: .center)
@@ -18,5 +20,8 @@ struct WeightPickerView: View {
 }
 
 #Preview {
-    WeightPickerView(user: UserDataModel(age: 0, gender: .male))
+    let user = UserDataModel()
+        
+    WeightPickerView()
+        .environmentObject(user)
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct agePicker: View {
     @Binding var ageSelected :Double
-    @ObservedObject var user :  UserDataModel
+    @EnvironmentObject var user :  UserDataModel
     var body: some View {
         
         Picker("Age", selection: $ageSelected){
@@ -22,6 +22,8 @@ struct agePicker: View {
 }
 
 #Preview {
+    let user = UserDataModel()
     
-    agePicker(ageSelected: .constant(15), user: .init(weight: 0, height: 0, age: 0, gender: ProgramsandPhyscal.gender.male))
+    agePicker(ageSelected: .constant(15))
+        .environmentObject(user)
 }

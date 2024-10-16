@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var user = UserDataModel()
-    @StateObject var pr=ProgramsandPhyscal()
+    @EnvironmentObject var user : UserDataModel
+    
+    @EnvironmentObject var pr:ProgramsandPhyscal
     
    
    
@@ -23,9 +24,9 @@ struct ContentView: View {
             
             
             
-            TabMenuView(user: user, pr: pr)
+            TabMenuView()
         }
-        .navigationTitle("Enter Yor Data")
+        
         
         
     }
@@ -33,5 +34,9 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView( pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:UserDataModel())
+    ContentView()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

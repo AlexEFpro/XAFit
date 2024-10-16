@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExerciseDisplay: View {
-    @ObservedObject var pr:ProgramsandPhyscal
+    @EnvironmentObject var pr:ProgramsandPhyscal
     
     var body: some View {
         HStack {
@@ -29,5 +29,8 @@ struct ExerciseDisplay: View {
 }
 
 #Preview {
-    ExerciseDisplay(pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user: user)
+    ExerciseDisplay()
+        .environmentObject(pr)
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FormView: View {
-    @ObservedObject var pr : ProgramsandPhyscal
-    @ObservedObject var user : UserDataModel
+    @EnvironmentObject var user : UserDataModel
+    @EnvironmentObject var pr : ProgramsandPhyscal
     @State private var ageSelected : Double = 15
     @State private var genderSelected : ProgramsandPhyscal.gender = .male
     var body: some View {
@@ -17,7 +17,7 @@ struct FormView: View {
             Form{
                 Section{
                     
-                    WeightPickerView(user: user)
+                    WeightPickerView()
                         .frame(width: 180, height: 150, alignment: .center)
                  
                     
@@ -25,16 +25,16 @@ struct FormView: View {
                 .scaledToFit()
                 
                 Section{
-                    HeightPickerView(user: user)
+                    HeightPickerView()
                         .frame(width: 180, height: 150, alignment: .center)
                         .scaledToFit()
                 }
                 .scaledToFit()
                 Section{
                     HStack{
-                        agePicker(ageSelected: $ageSelected, user: user)
+                        agePicker(ageSelected: $ageSelected)
                             .padding()
-                        genderPicker(genderSelected: $genderSelected, user: user)
+                        genderPicker(genderSelected: $genderSelected)
                         
                     }
                     .frame(height: 200)
@@ -45,7 +45,7 @@ struct FormView: View {
                         
                         HStack {
                             
-                            NavigationLink(destination: RmTestView(user: user, pr: pr)){
+                            NavigationLink(destination: RmTestView()){
                                 
                                 Button(action: {}) {
                                     Text(" Go to Evaluation")
@@ -98,6 +98,9 @@ struct FormView: View {
 }
 
 #Preview {
-    
-    FormView(pr: ProgramsandPhyscal(), user: UserDataModel())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:UserDataModel())
+    FormView()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

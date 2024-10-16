@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HeightPickerView: View {
-    @ObservedObject var user : UserDataModel
+    @EnvironmentObject var user : UserDataModel
+    
     @StateObject private var heightModel = HeightPickerConfigModel()
     var body: some View {
         WheelPicker(model: heightModel )
@@ -19,5 +20,7 @@ struct HeightPickerView: View {
 }
 
 #Preview {
-    HeightPickerView(user: UserDataModel(age: 15, gender: .male))
+    let user = UserDataModel()
+    HeightPickerView()
+        .environmentObject(user)
 }

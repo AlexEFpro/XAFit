@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct programPicker: View {
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var pr : ProgramsandPhyscal
     
     
     var body: some View {
@@ -23,5 +23,9 @@ struct programPicker: View {
 }
 
 #Preview {
-    programPicker(pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:user)
+    programPicker()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

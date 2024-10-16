@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkoutView: View {
-    @ObservedObject var user: UserDataModel
+    @EnvironmentObject var user: UserDataModel
    
     var body: some View {
         TimerView(tm: WorkoutCronoModel( user: user))
@@ -19,5 +19,6 @@ struct WorkoutView: View {
 #Preview {
     let user = UserDataModel()
    
-    WorkoutView(user: user)
+    WorkoutView()
+        .environmentObject(user)
 }

@@ -88,5 +88,8 @@ struct WheelPicker<Model:WheelPickerProtocol>: View {
 }
 
 #Preview {
-    ContentView( pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user: user)
+    ContentView()
+        .environmentObject(pr)
 }

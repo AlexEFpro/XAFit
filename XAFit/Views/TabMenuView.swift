@@ -8,26 +8,30 @@
 import SwiftUI
 
 struct TabMenuView: View {
-    @ObservedObject var user : UserDataModel
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var user : UserDataModel
+    @EnvironmentObject var pr : ProgramsandPhyscal
     
     
     var body: some View {
         TabView{
             Tab("",systemImage: "person"){
-                FormView( pr: pr, user: user)
+                FormView()
             }
             Tab("",systemImage: "list.bullet.clipboard"){
-                DashBoardUserView(user:user, pr: pr)
+                DashBoardUserView()
                 
             }
             Tab("",systemImage: "figure.strengthtraining.traditional"){
-                QuickTrainingView()
+                WorkoutView()
             }
         }
     }
 }
 
 #Preview {
-    TabMenuView(user: UserDataModel(), pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:UserDataModel())
+    TabMenuView()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

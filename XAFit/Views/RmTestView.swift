@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct RmTestView: View {
-    @ObservedObject var user : UserDataModel
-    @ObservedObject var pr : ProgramsandPhyscal
+    @EnvironmentObject var user : UserDataModel
+    @EnvironmentObject var pr : ProgramsandPhyscal
     var body: some View {
         VStack{
             VStack{
                 TimerView(tm: TimeRmModel())
                    
-                ExerciseDisplay(pr: pr)
+                ExerciseDisplay()
             }
             
             
@@ -26,35 +26,35 @@ struct RmTestView: View {
                             .font(.body .bold())
                     }
                         Section{
-                            programPicker(pr : pr)
+                            programPicker()
                             
                         }
                     ScrollView{
                         Section{
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:0)
+                            RmExercisePicker(indexTestExercise:0)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:1)
+                            RmExercisePicker(indexTestExercise:1)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:2)
+                            RmExercisePicker(indexTestExercise:2)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:3)
+                            RmExercisePicker(indexTestExercise:3)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:4)
+                            RmExercisePicker(indexTestExercise:4)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:5)
+                            RmExercisePicker(indexTestExercise:5)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:6)
+                            RmExercisePicker(indexTestExercise:6)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:7)
+                            RmExercisePicker(indexTestExercise:7)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:8)
+                            RmExercisePicker(indexTestExercise:8)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:9)
+                            RmExercisePicker(indexTestExercise:9)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:10)
+                            RmExercisePicker(indexTestExercise:10)
                             
-                            RmExercisePicker(pr: pr, indexTestExercise:11)
+                            RmExercisePicker(indexTestExercise:11)
                             
                         }
                         
@@ -63,7 +63,7 @@ struct RmTestView: View {
                     .padding()
                     
                     
-                    NavigationLink(destination: WorkoutView(user: user) ){
+                    NavigationLink(destination: WorkoutView() ){
                         
                         Button(action: {}) {
                             Text("Let´s Workout ")
@@ -95,5 +95,9 @@ struct RmTestView: View {
 }
 
 #Preview {
-    RmTestView(user: UserDataModel(), pr: ProgramsandPhyscal())
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user:UserDataModel())
+    RmTestView()
+        .environmentObject(user)
+        .environmentObject(pr)
 }
