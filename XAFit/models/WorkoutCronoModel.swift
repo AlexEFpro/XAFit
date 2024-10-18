@@ -35,7 +35,7 @@ class WorkoutCronoModel: CronoProtocol, ObservableObject{
     @Published var workoutFinished: Bool
     @Published var showAlert : Bool
     
-    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime: Double = 50 ,  isPaused: Bool = false, isResting: Bool = false, sets: Int = 3, user: UserDataModel, workoutFinished: Bool = false, restValue: Double = 0.0, showAlert: Bool = false) {
+    init(displayValue: Double = 0.0, showValue: Bool = false, value: Double = 1.0, displayDigits: Double = 0.0, setTime: Double = 50 ,  isPaused: Bool = false, isResting: Bool = false, sets: Int = 0, user: UserDataModel, workoutFinished: Bool = false, restValue: Double = 0.0, showAlert: Bool = false) {
         self.displayValue = displayValue
         self.showValue = showValue
         self.value = value

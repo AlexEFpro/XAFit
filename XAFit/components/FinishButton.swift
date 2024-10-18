@@ -9,38 +9,44 @@ import SwiftUI
 
 struct FinishButton: View {
     
-    @State var workoutsEnds : Bool = false
-    @State var workouts : Int = 0
-    func countingWorkout(){
-        if workoutsEnds == true{
-            workouts += 1
-        }
-    }
+    @EnvironmentObject var user : UserDataModel
+    @EnvironmentObject var pr : ProgramsandPhyscal
     
     var body: some View {
-        Button( action: {
-            workoutsEnds = true
+        NavigationStack{
+            Button( action: {
+                pr.workoutsEnds = true
+                
+                
+            })
+            {
+                Text("Ends Workout")
+                
+            }
+            .buttonStyle(.borderedProminent)
+            .font(.title.bold())
+           
+                .alert("Are you sure to end the session?", isPresented: $pr.workoutsEnds){
+                    
+                    Button("Yes", action:{pr.countingWorkout(); user.sesions += 1})
+                    Button("Cancel", role: .cancel){}
+                    
+                }
+//            NavigationLink(destination: TabMenuView(), isActive: $pr.navigateToDashBoard) {
+//                               EmptyView()
+//                           }
             
             
-        })
-        {
-            Text("Ends Workout")
             
         }
-        .buttonStyle(.borderedProminent)
-        .font(.title.bold())
-        Text(String("Workouts : \(workouts)"))
-            .font(.title2.bold())
-            .alert("Are you sure to end the session?", isPresented: $workoutsEnds){
-                Button("Yes", action:countingWorkout)
-                Button("Cancel", role: .cancel){}
-            }
-        
-        
-    }
+        }
+       
 }
 
 #Preview {
-    
+    let user = UserDataModel()
+    let pr = ProgramsandPhyscal(user: user)
     FinishButton()
+        .environmentObject(user)
+        .environmentObject(pr)
 }

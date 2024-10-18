@@ -9,7 +9,7 @@ import Foundation
 class ProgramsandPhyscal : ObservableObject {
     
     @Published var user : UserDataModel
-    init(user:UserDataModel, chestWeight:Double = 0,chestReps:Double = 0,backWeight:Double = 0,backReps:Double = 0,bicepWeight:Double = 0,bicepReps:Double = 0,tricepWeight:Double = 0,tricepReps:Double = 0,shoulderWeight:Double = 0,shoulderReps:Double = 0,deadLiftWeight:Double = 0,deadLiftReps:Double = 0,quadsWeight:Double = 0,quadsReps:Double = 0,femoralWeight:Double = 0,femoralReps:Double = 0,squatWeight:Double = 0,squatReps:Double = 0,calfWeight:Double = 0,calfReps:Double = 0,abdWeight:Double = 0,abdReps:Double = 0,addWeight:Double = 0,addReps:Double = 0){
+    init(user:UserDataModel, chestWeight:Double = 0,chestReps:Double = 0,backWeight:Double = 0,backReps:Double = 0,bicepWeight:Double = 0,bicepReps:Double = 0,tricepWeight:Double = 0,tricepReps:Double = 0,shoulderWeight:Double = 0,shoulderReps:Double = 0,deadLiftWeight:Double = 0,deadLiftReps:Double = 0,quadsWeight:Double = 0,quadsReps:Double = 0,femoralWeight:Double = 0,femoralReps:Double = 0,squatWeight:Double = 0,squatReps:Double = 0,calfWeight:Double = 0,calfReps:Double = 0,abdWeight:Double = 0,abdReps:Double = 0,addWeight:Double = 0,addReps:Double = 0, workoutsEnds:Bool = false, navigateToDashBoard : Bool = false){
         self.user = user
         self.chestWeight = chestWeight
         self.chestReps = chestReps
@@ -35,9 +35,11 @@ class ProgramsandPhyscal : ObservableObject {
         self.abdReps = abdReps
         self.addWeight = addWeight
         self.addReps = addReps
+        self.workoutsEnds = workoutsEnds
+        self.navigateToDashBoard = navigateToDashBoard
         
     }
-    
+    @Published var navigateToDashBoard: Bool
     @Published var selectedProgram : Program = .callistenichs{
         didSet{
             updateTestExercises()
@@ -83,6 +85,7 @@ class ProgramsandPhyscal : ObservableObject {
     //add
     @Published var addWeight:Double
     @Published var addReps:Double
+    @Published var workoutsEnds : Bool
     
     func rmCalc(){
         user.chestRm = (chestWeight*0.025)*chestReps+chestWeight
@@ -187,6 +190,14 @@ class ProgramsandPhyscal : ObservableObject {
         }
         
         
+    }
+    
+    func countingWorkout(){
+        if workoutsEnds == true{
+            workoutsEnds = false
+            navigateToDashBoard = true
+           
+        }
     }
     
 }

@@ -19,6 +19,7 @@ struct TabMenuView: View {
             }
             Tab("",systemImage: "list.bullet.clipboard"){
                 DashBoardUserView()
+                   
                 
             }
             Tab("",systemImage: "figure.strengthtraining.traditional"){

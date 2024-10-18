@@ -31,7 +31,7 @@ struct DashBoardUserView: View {
                                 .font(.title2.bold())
                             Spacer()
                             Text(String(format: "%.1f", user.weight))
-                            weightRmPicker()
+                            
                             
                         }
                         HStack{
@@ -66,30 +66,9 @@ struct DashBoardUserView: View {
                             Text("Total sesions")
                                 .font(.title2.bold())
                             Spacer()
-                            Text("0")
+                            Text(String(user.sesions))
                                 .bold()
                         }
-//                        Spacer()
-//                        HStack{
-//                            Text("Pull Rm")
-//                                .font(.title2.bold())
-//                            Spacer()
-//                            Text("0")
-//                        }
-//                        Spacer()
-//                        HStack{
-//                            Text("Push Rm")
-//                                .font(.title2.bold())
-//                            Spacer()
-//                            Text("0")
-//                        }
-//                        Spacer()
-//                        HStack{
-//                            Text("Squat Rm")
-//                                .font(.title2.bold())
-//                            Spacer()
-//                            Text("0")
-//                        }
                     }
                     
                 }
